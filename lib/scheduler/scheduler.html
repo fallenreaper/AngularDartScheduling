@@ -1,0 +1,30 @@
+<div>
+    <div #schedulerTable
+         class="table">
+        <div *ngFor="let day of days"
+             class="row">
+            <div class="row-header noselect">{{day['name']}}</div>
+            <div *ngFor="let hour of day['times']"
+                 class="{{hourClasses}}">
+                <div class="{{halfHourClasses}}">
+                    <div class="{{quarterHourClasses}}"></div>
+                    <div class="{{quarterHourClasses}}"></div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!twelveHourTime"
+             class="row">
+            <div class="column-header"></div>
+            <div *ngFor="let hour of hours; let i = index"
+                 class="column-header noselect">
+                {{i}}
+            </div>
+        </div>
+        <div *ngIf="twelveHourTime"
+             class="row">
+            <div class="column-header"></div>
+            <div *ngFor="let hour of twelveHours"
+                 class="column-header noselect">{{hour}}</div>
+        </div>
+    </div>
+</div>
